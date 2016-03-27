@@ -11,7 +11,7 @@ def get_tickets():
     # MANDATORY: include direct path to chromedriver here
     driver = webdriver.Chrome(os.path.dirname(os.path.realpath(__file__)) + '/chromedriver')
     # opens bacchanal eventbrite ticketing page
-    driver.get("https://www.eventbrite.com/e/bacchanal-2016-tickets-22507236751")
+    driver.get("https://www.eventbrite.com/e/bacchanal-tester-tickets-24212273562")
     # click register button
     register = driver.find_element(By.XPATH, '//*[@id="event-page"]/main/div[1]/div[2]/div/div[1]/div[1]/div/div[2]/div/div/div/form/span/span[2]/a').click()
     # click checkout buton
