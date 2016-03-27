@@ -1,3 +1,4 @@
+python get-pip.py
 pip install selenium
 
 run: python ticketer.py
