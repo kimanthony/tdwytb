@@ -2,14 +2,19 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from threading import Thread
+from datetime import datetime
 import Queue, sys, os
 
 q = Queue.Queue()
+ticket_time = datetime(2016, 3, 28, 20, 0, 0, 0)
 
 def get_tickets():
     ''' opens a new chrome application and clicks on the register then checkout button'''
     # MANDATORY: include direct path to chromedriver here
     driver = webdriver.Chrome(os.path.dirname(os.path.realpath(__file__)) + '/chromedriver')
+    # wait until time is equal or after ticket_time to open the site and click the buttons
+    while datetime.now() < ticket_time:
+        pass
     # opens bacchanal eventbrite ticketing page
     driver.get("https://www.eventbrite.com/e/bacchanal-2016-tickets-22507236751")
     # click register button
@@ -27,7 +32,7 @@ if __name__ == "__main__":
         q.put(thread) # add the thread to the queue
     try:
         while 1:
-            x = 1
+            pass
     except KeyboardInterrupt:
         sys.exit()
         
